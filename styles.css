@@ -1,0 +1,148 @@
+/* Reset */
+* {
+    box-sizing: border-box; /* Veri good =)*/
+}
+
+body, h1, h2, h3 , h4, h5, figure, p, ol, ul { 
+    margin: 0;
+}
+
+ol, ul {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* ^ End of Eskils cocktail */
+
+/* Global */
+
+:root {
+    --background-color: #ffcc00; /* Bright yellow background */
+    --header-footer-bg-color: #00aaff; /* Bright blue header */
+    --nav-bg-color: #ff3399; /* Pink navigation background */
+    --nav-typography-color: white; /* Wonder what color this is */
+    --nav-link-hover-color: #fffb02; /* Yellowish hover */
+    --main-bg-color: #ff99cc; /* Light pink main */
+    --main-border-color: #ed2d8d; /* Pink border */
+    --sidebar-bg-color: #99ff00; /* Bright green */
+
+}
+
+/* Layout */
+
+body { /* Decided to put body in layout since I used it for flex */
+    font-family: 'Comic Sans MS', sans-serif; 
+    background-color: var(--background-color); 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+/* Components */
+
+header {
+    background-color: var(--header-footer-bg-color); /* Bright blue header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.nav__list {
+    list-style-type: none;
+    display: flex;
+    background-color: var(--nav-bg-color); /* Pink navigation background */
+    padding: 10px;
+    justify-content: center;
+}
+
+.nav__item {
+    text-decoration: none;
+    color: var(--nav-typography-color);
+    font-weight: 700;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: var(--nav-typography-color);
+    font-weight: 700;
+    margin-left: 2rem;
+}
+
+.nav__link:hover {
+    color: var(--nav-link-hover-color);
+    font-weight: 700; 
+}
+
+.content-container {
+    flex-grow: 1; /* Allow the main content area to grow and fill available space */
+    display: flex;
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.content {
+    flex-basis: 100%;
+    width: 100vw;
+    background-color: var(--main-bg-color); 
+    border: 5px solid var(--main-border-color); 
+    text-align: center;
+}
+
+button {
+    font-size: 3rem;
+    margin-top: 1rem;
+}
+
+footer {
+    background-color: var(--header-footer-bg-color);
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+@keyframes rotateAndColorChange {
+
+    25% {
+        transform: rotate(90deg);
+        background-color: #ff3399; 
+    }
+    50% {
+        transform: rotate(180deg);
+        background-color: #00aaff; 
+    }
+    75% {
+        transform: rotate(270deg);
+        background-color: #ff3399; 
+    }
+}
+
+.animate2 {
+    animation: rotateAndColorChange 5s linear infinite;
+}
+
+@media (min-width: 35rem) {
+    
+    .animate2 {
+        animation: rotateAndColorChangeDecrease 5s linear infinite;
+    }
+
+    @keyframes rotateAndColorChangeDecrease {
+        0%, 100% {
+            transform: rotate(0deg);
+            background-color: #ffcc00;
+        }
+        25% {
+            transform: rotate(-90deg); 
+            background-color: var(--nav-bg-color);
+        }
+        50% {
+            transform: rotate(-180deg); 
+            background-color: #00aaff;
+        }
+        75% {
+            transform: rotate(-270deg); 
+            background-color: var(--nav-bg-color);
+        }
+    }
+}

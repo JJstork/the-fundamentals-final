@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>?</title>
+    <script>
+      function toggleAnimation() {
+        // Get elements with 'animate'
+        const elements = document.querySelectorAll(".animate");
+
+        // Loop through the elements and toggle the classes
+        elements.forEach((element) => {
+          element.classList.toggle("animate");
+          element.classList.toggle("animate2");
+        });
+
+        // Revert the classes after 5 seconds
+        setTimeout(() => {
+          elements.forEach((element) => {
+            element.classList.toggle("animate");
+            element.classList.toggle("animate2");
+          });
+        }, 5000);
+      }
+    </script>
+  </head>
+
+  <body class="animate">
+    <header class="header">
+      <!--Applied BEM to my understanding even though I don't have that much in this project, so I applied classes that I don't even use in the CSS. Not sure if that is best practice though.-->
+      <h1 class="header__title">Very dumb website</h1>
+    </header>
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="#">These</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">Don't</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">Work</a></li>
+      </ul>
+    </nav>
+    <main class="content-container">
+      <section class="content">
+        <div class="spinning">
+          <p class="spinning__text">Spinning class</p>
+        </div>
+        <button class="spinning__button" onclick="toggleAnimation()">🏍️</button>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">©©©©©©©©©©©©©©©©</p>
+    </footer>
+  </body>
+</html>
